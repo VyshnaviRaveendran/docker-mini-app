@@ -24,3 +24,15 @@ services:
 
 volumes:
   mongo-data:
+
+backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    # New line: Tells Docker Compose to read environment variables from this file
+    env_file:
+      - ./backend/.env
+    # NOTE: You must also ensure your backend code uses a library like 'dotenv' 
+    # to load this variable if running outside of Docker.
+    depends_on:
+      - mongo
