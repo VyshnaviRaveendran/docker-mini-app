@@ -4,7 +4,7 @@ function App() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("https://docker-mini-backend.onrender.com/api/hello")
+    fetch("https://docker-mini-app-2-0pub.onrender.com/api/hello")
       .then(res => res.json())
       .then(data => setMessage(data.message));
   }, []);
