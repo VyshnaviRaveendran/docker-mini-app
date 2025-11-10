@@ -1,4 +1,6 @@
 // Create a file server.js
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -7,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb://mongo:27017/dockerlearn', {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -19,3 +21,12 @@ app.get('/api/hello', (req, res) => {
 });
 
 app.listen(5000, () => console.log('🚀 Backend running on port 5000'));
+
+
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
